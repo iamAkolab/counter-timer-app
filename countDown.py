@@ -17,3 +17,9 @@ def cant_wait():
     txt.set(timeLeft)
 
     root.after(1000.cant_wait)
+
+root = Tk()
+root.attributes("-fullscreen", False)
+root.configure(background="black")
+root.bind("x",quit)
+root.after(1000,cant_wait)
