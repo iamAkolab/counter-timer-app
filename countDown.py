@@ -12,14 +12,23 @@ def quit(*args):
 
 def cant_wait():
     timeLeft = endTime - datetime.datetime.now()
-    time = timeLeft - datetime.timedelta(microseconds=timeLeft.microsecond)
+    time = timeLeft - datetime.timedelta(microseconds=timeLeft.microseconds)
 
     txt.set(timeLeft)
 
-    root.after(1000.cant_wait)
+    root.after(1000,cant_wait)
 
 root = Tk()
 root.attributes("-fullscreen", False)
 root.configure(background="black")
 root.bind("x",quit)
 root.after(1000,cant_wait)
+
+endTime = datetime.datetime(2017,9,30,0)
+fnt = font.Font(family = "Helvetica", size = 90, weight = "bold")
+
+txt = StringVar()
+lbl = ttk.Label(root, textvariable = txt, font = fnt, foreground = "white", background ="black")
+lbl.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+
+root.mainloop()
